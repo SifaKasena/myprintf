@@ -59,7 +59,7 @@ void print_hex(unsigned int *n, ...)
 	num = va_arg(ptr, int);
 	if (num / 16)
 		print_hex(n, num / 16);
-	c = num % 16 < 9 ? num % 16 + '0' : num % 16 + 87;
+	c = num % 16 < 10 ? num % 16 + '0' : num % 16 + 87;
 	write(1, &c, 1);
 	(*n)++;
 	va_end(ptr);
@@ -80,7 +80,7 @@ void print_hex_caps(unsigned int *n, ...)
 	num = va_arg(ptr, int);
 	if (num / 16)
 		print_hex_caps(n, num / 16);
-	c = num % 16 < 9 ? num % 16 + '0' : num % 16 + 55;
+	c = num % 16 < 10 ? num % 16 + '0' : num % 16 + 55;
 	write(1, &c, 1);
 	(*n)++;
 	va_end(ptr);
@@ -94,16 +94,15 @@ void print_hex_caps(unsigned int *n, ...)
 void print_adr(unsigned int *n, ...)
 {
 	va_list ptr;
-	unsigned int num;
-	char c;
-	char *s = "0x7ffe";
+	long num;
+	char c, *hex = "0x";
 
 	va_start(ptr, n);
-	num = va_arg(ptr, int);
+	num = va_arg(ptr, long);
 	if (num / 16)
 		print_adr(n, num / 16);
 	else
-		print_str(n, s);
+		write(1, hex, 2);
 	c = num % 16 < 9 ? num % 16 + '0' : num % 16 + 87;
 	write(1, &c, 1);
 	(*n)++;

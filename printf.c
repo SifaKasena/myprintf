@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 					n++;
 					break;
 				case 1:
-					get_mod_fun(format[i])(&n, va_arg(ptr, int));
+					get_mod_fun(format[i])(&n, va_arg(ptr, long));
 					break;
 				case 2:
 					get_mod_fun(format[i])(&n, va_arg(ptr, void *));

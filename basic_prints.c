@@ -39,7 +39,7 @@ void print_int(unsigned int *n, ...)
 	{
 		c = '-';
 		write(1, &c, 1);
-		u_num = num * -1;
+		u_num = -num;
 	}
 	else
 	{
@@ -72,27 +72,5 @@ void print_str(unsigned int *n, ...)
 		(*n)++;
 		s++;
 	}
-	va_end(ptr);
-}
-
-/**
- * print_bin - prints a character string
- * @n: integer pointer
- * Return: void
- */
-
-void print_bin(unsigned int *n, ...)
-{
-	va_list ptr;
-	unsigned int num;
-	char c;
-
-	va_start(ptr, n);
-	num = va_arg(ptr, int);
-	if (num / 2)
-		print_bin(n, num / 2);
-	c = num % 2 + '0';
-	write(1, &c, 1);
-	(*n)++;
 	va_end(ptr);
 }

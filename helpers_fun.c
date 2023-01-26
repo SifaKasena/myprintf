@@ -21,7 +21,7 @@ int get_type(char c)
 	}
 	if (state)
 		return (1);
-	else if (c == 's' || c == 'p')
+	else if (c == 's' || c == 'p' || c == 'S')
 		return (2);
 	else if (c == '%')
 		return (0);
@@ -46,7 +46,8 @@ void (*get_mod_fun(char c))(unsigned int *n, ...)
 		{'o', print_oct},
 		{'x', print_hex},
 		{'X', print_hex_caps},
-		{'p', print_adr}
+		{'p', print_adr},
+		{'S', print_str_hex}
 	};
 	unsigned int i = 0;
 
