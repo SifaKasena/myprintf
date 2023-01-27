@@ -9,19 +9,29 @@
 int get_type(char c)
 {
 	char ints[] = {'c', 'd', 'i', 'b', 'u', 'o', 'x', 'X'};
-	int i, state = 0;
+	char *str = "spSrR";
+	int i, bool_int, bool_str;
 
+	bool_int = bool_str = 0;
 	for (i = 0; i < 8; i++)
 	{
 		if (ints[i] == c)
 		{
-			state = 1;
+			bool_int = 1;
 			break;
 		}
 	}
-	if (state)
+	for (i = 0; i < 5; i++)
+	{
+		if (str[i] == c)
+		{
+			bool_str = 1;
+			break;
+		}
+	}
+	if (bool_int)
 		return (1);
-	else if (c == 's' || c == 'p' || c == 'S')
+	else if (bool_str)
 		return (2);
 	else if (c == '%')
 		return (0);
@@ -47,7 +57,9 @@ void (*get_mod_fun(char c))(unsigned int *n, ...)
 		{'x', print_hex},
 		{'X', print_hex_caps},
 		{'p', print_adr},
-		{'S', print_str_hex}
+		{'S', print_str_hex},
+		{'r', print_rev},
+		{'R', print_rot13}
 	};
 	unsigned int i = 0;
 

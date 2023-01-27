@@ -24,5 +24,7 @@ void print_hex(unsigned int *n, ...);
 void print_hex_caps(unsigned int *n, ...);
 void print_adr(unsigned int *n, ...);
 void print_str_hex(unsigned int *n, ...);
+void print_rev(unsigned int *n, ...);
+void print_rot13(unsigned int *n, ...);
 
 #endif
