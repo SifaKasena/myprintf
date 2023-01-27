@@ -107,6 +107,7 @@ void print_adr(unsigned int *n, ...)
 	{
 		write(1, hex, 2);
 		*n += 2;
+	}
 	c = num % 16 < 9 ? num % 16 + '0' : num % 16 + 87;
 	write(1, &c, 1);
 	(*n)++;
