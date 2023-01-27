@@ -100,9 +100,13 @@ void print_adr(unsigned int *n, ...)
 	va_start(ptr, n);
 	num = va_arg(ptr, long);
 	if (num / 16)
+	{
 		print_adr(n, num / 16);
+	}
 	else
+	{
 		write(1, hex, 2);
+		*n += 2;
 	c = num % 16 < 9 ? num % 16 + '0' : num % 16 + 87;
 	write(1, &c, 1);
 	(*n)++;

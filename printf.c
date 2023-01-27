@@ -26,7 +26,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			i++;
+			if (format[++i] == '\0')
+				return (-1);
 			type = get_type(format[i]);
 			switch (type)
 			{
@@ -42,6 +43,7 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					write(1, format + i - 1, 2);
+					n += 2;
 					break;
 			}
 		}

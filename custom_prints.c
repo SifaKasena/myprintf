@@ -44,6 +44,7 @@ void print_str_hex(unsigned int *n, ...)
 		if ((*s < 32 && *s > 0) || *s >= 127)
 		{
 			write(1, hex, 2);
+			*n += 2;
 			if (*s < 16)
 				write(1, &c, 1);
 			print_hex_caps(n, *s);
