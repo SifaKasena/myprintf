@@ -46,7 +46,10 @@ void print_str_hex(unsigned int *n, ...)
 			write(1, hex, 2);
 			*n += 2;
 			if (*s < 16)
+			{
 				write(1, &c, 1);
+				(*n)++;
+			}
 			print_hex_caps(n, *s);
 		}
 		else

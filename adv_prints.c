@@ -103,13 +103,21 @@ void print_adr(unsigned int *n, ...)
 	{
 		print_adr(n, num / 16);
 	}
+	else if (num == 0)
+	{
+		hex = "(nil)";
+		print_str(n, hex);
+	}
 	else
 	{
 		write(1, hex, 2);
 		*n += 2;
 	}
 	c = num % 16 < 9 ? num % 16 + '0' : num % 16 + 87;
-	write(1, &c, 1);
-	(*n)++;
+	if (num != 0)
+	{
+		write(1, &c, 1);
+		(*n)++;
+	}
 	va_end(ptr);
 }
