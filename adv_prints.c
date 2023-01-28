@@ -94,7 +94,7 @@ void print_hex_caps(unsigned int *n, ...)
 void print_adr(unsigned int *n, ...)
 {
 	va_list ptr;
-	long num;
+	unsigned long num;
 	char c, *hex = "0x";
 
 	va_start(ptr, n);
