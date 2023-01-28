@@ -39,6 +39,7 @@ void print_int(unsigned int *n, ...)
 	{
 		c = '-';
 		write(1, &c, 1);
+		(*n)++;
 		u_num = -num;
 	}
 	else
